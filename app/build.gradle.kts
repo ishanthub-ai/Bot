@@ -151,27 +151,29 @@ tasks.named("preBuild") {
 }
 
 tasks.register("copyApkToRoot") {
+    val appDebugApkFile = File(project.projectDir, "build/outputs/apk/debug/app-debug.apk")
+    val appReleaseApkFile = File(project.projectDir, "build/outputs/apk/release/app-release-unsigned.apk")
+    val destApkFile = File(project.rootDir, "bot.apk")
+    
     doLast {
-        val appDebugApk = File(subprojectDir, "build/outputs/apk/debug/app-debug.apk")
-        val destApk = File(rootDir, "bot.apk")
-        if (appDebugApk.exists()) {
-            appDebugApk.copyTo(destApk, overwrite = true)
-            println("APK successfully copied to root as bot.apk! Location: ${destApk.absolutePath}")
+        if (appDebugApkFile.exists()) {
+            appDebugApkFile.copyTo(destApkFile, overwrite = true)
+            println("APK successfully copied to root as bot.apk! Location: ${destApkFile.absolutePath}")
         } else {
-            // Also search build/outputs/apk/release if compiled for release
-            val appReleaseApk = File(subprojectDir, "build/outputs/apk/release/app-release-unsigned.apk")
-            if (appReleaseApk.exists()) {
-                appReleaseApk.copyTo(destApk, overwrite = true)
-                println("Release APK successfully copied to root as bot.apk! Location: ${destApk.absolutePath}")
+            if (appReleaseApkFile.exists()) {
+                appReleaseApkFile.copyTo(destApkFile, overwrite = true)
+                println("Release APK successfully copied to root as bot.apk! Location: ${destApkFile.absolutePath}")
             } else {
-                println("Warning: Assembled APK not found at ${appDebugApk.absolutePath} or ${appReleaseApk.absolutePath}")
+                println("Warning: Assembled APK not found")
             }
         }
     }
 }
 
-tasks.named("assemble") {
-    finalizedBy("copyApkToRoot")
+tasks.configureEach {
+    if (this.name == "assemble" || this.name == "assembleDebug") {
+        finalizedBy("copyApkToRoot")
+    }
 }
 
 

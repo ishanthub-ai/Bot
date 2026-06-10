@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Server Mode — Companion App & LAN Host</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        mineDark: '#0B0D0F',
+                        mineCard: '#13171B',
+                        mineStroke: '#222930',
+                        mineDiamond: '#00D2FF',
+                        mineRedstone: '#FF2244',
+                        mineGold: '#FFC800',
+                        mineGreen: '#00FF66',
+                        mineTextPrimary: '#F1F5F9',
+                        mineTextSecondary: '#94A3B8',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b0d0f;
+            color: #f1f5f9;
+        }
+        .retro-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(34, 41, 48, 0.5) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(34, 41, 48, 0.5) 1px, transparent 1px);
+        }
+        .pixel-border {
+            box-shadow: 
+                0 -4px 0 -2px #13171b, 0 4px 0 -2px #13171b,
+                -4px 0 0 -2px #13171b, 4px 0 0 -2px #13171b,
+                inset 0 0 0 2px #222930;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-mineDiamond selection:text-mineDark">
+
+    <!-- Top Glow Effect -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[400px] bg-mineDiamond/5 blur-[120px] pointer-events-none"></div>
+
+    <!-- Header / Navigation -->
+    <header class="border-b border-mineStroke/80 backdrop-blur-md bg-mineDark/75 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl">📡</span>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight tracking-tight text-mineTextPrimary">MINECRAFT</h1>
+                    <p class="text-[10px] font-mono tracking-widest text-mineDiamond uppercase">SERVER MODE COMPANION</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#features" class="text-mineTextSecondary hover:text-mineTextPrimary transition">Features</a>
+                <a href="#deployment" class="text-mineTextSecondary hover:text-mineTextPrimary transition">How to Run</a>
+                <a href="#premium" class="text-mineTextSecondary hover:text-mineTextPrimary transition">Premium Pass</a>
+                <a href="#developer" class="text-mineTextSecondary hover:text-mineTextPrimary transition">Dev Tools</a>
+            </nav>
+            <div>
+                <a href="bot.apk" download class="inline-flex items-center space-x-2 px-4 py-2 border border-mineDiamond bg-mineDiamond/10 rounded-sm hover:bg-mineDiamond hover:text-mineDark font-bold text-xs font-mono tracking-wide transition-all duration-300">
+                    <span>DOWNLOAD APK</span>
+                    <span class="text-sm">⬇️</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="relative retro-grid py-12 md:py-24">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Info -->
+            <div class="lg:col-span-7 flex flex-col space-y-6">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 bg-mineDiamond/10 border border-mineDiamond/30 rounded-full w-fit">
+                    <span class="w-1.5 h-1.5 rounded-full bg-mineGreen animate-ping"></span>
+                    <span class="text-xs font-semibold text-mineDiamond tracking-wider uppercase font-mono">LAN Server v1.0.0 Active</span>
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-mineTextPrimary leading-none">
+                    Host & Control your Minecraft LAN Server
+                </h1>
+
+                <p class="text-lg text-mineTextSecondary max-w-2xl">
+                    An offline companion dashboard and LAN manager for Minecraft Bedrock Edition. Feature-packed with simulated local AI control, on-device vision block scan blueprints, bot status tracking, and low-latency proxy environments.
+                </p>
+
+                <!-- Action Group -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                    <a href="bot.apk" download class="flex items-center justify-center space-x-3 px-8 py-4 bg-mineDiamond hover:bg-mineDiamond/90 text-mineDark font-bold rounded-lg transition-transform hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-mineDiamond/15 text-center">
+                        <span class="font-mono tracking-widest text-sm">DOWNLOAD DIRECT APK</span>
+                        <span>🤖</span>
+                    </a>
+                    
+                    <a href="#how-to-install" class="flex items-center justify-center space-x-2 px-6 py-4 bg-mineCard border border-mineStroke hover:bg-mineStroke/40 text-mineTextSecondary hover:text-mineTextPrimary font-medium rounded-lg transition text-sm">
+                        <span>Installation Guide</span>
+                        <span>👉</span>
+                    </a>
+                </div>
+
+                <!-- Info Grid -->
+                <div class="grid grid-cols-3 gap-6 pt-8 border-t border-mineStroke">
+                    <div>
+                        <div class="text-2xl font-bold text-mineDiamond font-mono">Offline</div>
+                        <div class="text-xs text-mineTextSecondary">No internet needed</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-mineRedstone font-mono">0 ms</div>
+                        <div class="text-xs text-mineTextSecondary">LAN RakNet Jitter</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-mineGold font-mono">No Ads</div>
+                        <div class="text-xs text-mineTextSecondary">Bypass with Creeper Pass</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual Dashboard Simulation -->
+            <div class="lg:col-span-5 relative">
+                <!-- Outer Shadow Glow -->
+                <div class="absolute inset-0 bg-gradient-to-r from-mineDiamond/10 to-mineRedstone/10 rounded-2xl blur-3xl pointer-events-none"></div>
+                
+                <!-- Terminal Shell Sandbox Simulated -->
+                <div class="relative bg-mineCard border-2 border-mineStroke rounded-xl overflow-hidden shadow-2xl flex flex-col font-mono text-xs">
+                    
+                    <!-- App Title bar -->
+                    <div class="bg-mineDark px-4 py-3 border-b border-mineStroke flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="text-[11px] text-mineTextSecondary font-bold text-center tracking-wider">📡 MC SERVER PRO SERVICES</span>
+                        <div class="w-12"></div>
+                    </div>
+
+                    <!-- App Screen Content -->
+                    <div class="p-4 space-y-4 max-h-[380px] overflow-y-auto">
+                        
+                        <!-- Ads Banner Mock -->
+                        <div id="sim-ad" class="border border-mineRedstone/50 bg-red-950/20 rounded-md p-3 flex flex-col space-y-1.5">
+                            <div class="flex items-center justify-between">
+                                <span class="bg-mineRedstone text-[8px] text-mineDark px-1 font-bold rounded">AD SPONSOR</span>
+                                <button onclick="dismissAd()" class="text-mineTextSecondary hover:text-mineTextPrimary text-[10px]">×</button>
+                            </div>
+                            <p class="text-[10px] text-mineTextPrimary">🚀 Run ultra high performance 24/7 Minecraft server nodes with 16GB RAM for only $3.50. Tap to apply...</p>
+                        </div>
+
+                        <!-- Active server specs -->
+                        <div class="border border-mineStroke bg-mineDark p-3 rounded-md space-y-2">
+                            <div class="flex items-center justify-between text-mineGreen">
+                                <span>● LAN Server Creator:</span>
+                                <strong>ACTIVE</strong>
+                            </div>
+                            <div class="text-[10px] text-mineTextSecondary">
+                                <div class="flex justify-between">
+                                    <span>Proxy Mode:</span>
+                                    <span class="text-mineDiamond">127.0.0.1:19132</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Allocated RAM:</span>
+                                    <span class="text-mineGold" id="sim-ram">248 MB</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>CPU Utilization:</span>
+                                    <span class="text-mineRedstone" id="sim-cpu">18%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Promo Entry Simulator -->
+                        <div class="border border-mineStroke bg-mineDark/50 p-3 rounded-md space-y-2">
+                            <span class="text-mineDiamond font-bold">👑 Premium Mode Unlock:</span>
+                            <div class="flex space-x-2">
+                                <input type="text" id="promo-code" placeholder="ENTER 'CREEPERPASS'" class="bg-mineCard border border-mineStroke text-mineTextPrimary px-2 py-1 rounded w-full focus:outline-none focus:border-mineDiamond uppercase text-xs">
+                                <button onclick="applyPromo()" class="bg-mineDiamond text-mineDark font-bold px-3 py-1 rounded text-xs hover:bg-mineDiamond/80 transition">Apply</button>
+                            </div>
+                            <span id="promo-status" class="text-[10px] text-mineTextSecondary block">Enter promo code to override advertising loops.</span>
+                        </div>
+
+                        <!-- Logs Screen Mock -->
+                        <div class="bg-black/80 rounded p-2.5 space-y-1 font-mono text-[9px] text-gray-400 max-h-24 overflow-y-auto" id="terminal-logs">
+                            <p class="text-mineTextSecondary">[01:13:42] Server Host: Initialising RakNet offline socket on port 19132...</p>
+                            <p class="text-mineTextSecondary">[01:13:43] Server Host: Spreading chunks for world seed 884029419401...</p>
+                            <p class="text-mineGreen">[01:13:44] Server Host: Host Active! Clients may scan now.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Key App Features Section -->
+    <section id="features" class="py-20 border-t border-mineStroke bg-mineDark bg-opacity-70">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center space-y-3 mb-16">
+                <h2 class="text-3xl font-bold tracking-tight text-mineTextPrimary">Android Integration Core Features</h2>
+                <span class="text-mineDiamond font-mono tracking-wider uppercase text-xs">Explore what is fully working in bot.apk</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Feature 1 -->
+                <div class="bg-mineCard border border-mineStroke p-6 rounded-lg space-y-4 hover:border-mineDiamond/40 transition duration-300">
+                    <div class="text-3xl">📡</div>
+                    <h3 class="text-lg font-bold text-mineTextPrimary">LAN Server hosting room</h3>
+                    <p class="text-sm text-mineTextSecondary">
+                        Toggle on-device bridge sockets on typical port 19132. Includes real-time indicators monitor measuring Android CPU usage & allocated RAM metrics.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-mineCard border border-mineStroke p-6 rounded-lg space-y-4 hover:border-mineDiamond/40 transition duration-300">
+                    <div class="text-3xl">🤖</div>
+                    <h3 class="text-lg font-bold text-mineTextPrimary">Local LAN client deployment</h3>
+                    <p class="text-sm text-mineTextSecondary">
+                        Instantly deploy custom bot configurations utilizing skin selections (Steve, Alex, Creeper Hunter, Redstone Knight). Join proxy and check latency logs.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-mineCard border border-mineStroke p-6 rounded-lg space-y-4 hover:border-mineDiamond/40 transition duration-300">
+                    <div class="text-3xl">🛠️</div>
+                    <h3 class="text-lg font-bold text-mineTextPrimary">Developer cheats console</h3>
+                    <p class="text-sm text-mineTextSecondary">
+                        Harness simulated server side commands like `/gamemode creative`, `/summon giant`, `/tp`, `/time set day`, and customizable search query selectors.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-mineCard border border-mineStroke p-6 rounded-lg space-y-4 hover:border-mineDiamond/40 transition duration-300">
+                    <div class="text-3xl">👑</div>
+                    <h3 class="text-lg font-bold text-mineTextPrimary">Promotion bypass vault</h3>
+                    <p class="text-sm text-mineTextSecondary">
+                        Enter unlock promo handles such as 'CREEPERPASS' or 'SERVERVIP' to immediately mute ad banners and enable privileged developer modes.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="bg-mineCard border border-mineStroke p-6 rounded-lg space-y-4 hover:border-mineDiamond/40 transition duration-300">
+                    <div class="text-3xl">📺</div>
+                    <h3 class="text-lg font-bold text-mineTextPrimary">Interactive Stream guides</h3>
+                    <p class="text-sm text-mineTextSecondary">
+                        Query optimized video packs focusing on offline Bedrock setup steps, local networks, proxy routers, and server-side automation directives.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="bg-mineCard border border-mineStroke p-6 rounded-lg space-y-4 hover:border-mineDiamond/40 transition duration-300">
+                    <div class="text-3xl">📦</div>
+                    <h3 class="text-lg font-bold text-mineTextPrimary">Built-in Resource Pack</h3>
+                    <p class="text-sm text-mineTextSecondary">
+                        Pre-bundled offline game assets (52MB resource pack) configured directly inside the application files for uninterrupted offline server simulations.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Steps Section -->
+    <section id="how-to-install" class="py-20 border-t border-mineStroke relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center space-y-3 mb-16">
+                <h2 class="text-3xl font-bold tracking-tight text-mineTextPrimary">APK Installation Directive</h2>
+                <p class="text-sm text-mineTextSecondary uppercase font-mono tracking-widest">How to get bot.apk running on Android device</p>
+            </div>
+
+            <div class="space-y-8 relative before:absolute before:left-6 before:top-4 before:bottom-4 before:w-0.5 before:bg-mineStroke">
+                <!-- Step 1 -->
+                <div class="flex items-start space-x-6 relative">
+                    <div class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-mineDiamond bg-mineDark text-mineDiamond font-mono font-bold z-10 shrink-0">1</div>
+                    <div class="pt-2">
+                        <h4 class="text-lg font-bold text-mineTextPrimary">Download bot.apk</h4>
+                        <p class="text-sm text-mineTextSecondary mt-1">Tap the high-availability links or buttons above to save the generated APK build to your device storage folder structure.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex items-start space-x-6 relative">
+                    <div class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-mineStroke bg-mineDark text-mineTextSecondary font-mono font-bold z-10 shrink-0">2</div>
+                    <div class="pt-2">
+                        <h4 class="text-lg font-bold text-mineTextPrimary">Allow Unknown Sources Permission</h4>
+                        <p class="text-sm text-mineTextSecondary mt-1">Due to custom signature security frameworks on Google Android, proceed to system <code class="bg-mineCard px-1.5 py-0.5 border border-mineStroke rounded font-mono text-mineDiamond text-xs">Settings → Security → Apps</code> and toggle "Install Unknown Apps" or "Unknown Sources" on for your browser.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex items-start space-x-6 relative">
+                    <div class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-mineStroke bg-mineDark text-mineTextSecondary font-mono font-bold z-10 shrink-0">3</div>
+                    <div class="pt-2">
+                        <h4 class="text-lg font-bold text-mineTextPrimary">Run & Deploy simulated node</h4>
+                        <p class="text-sm text-mineTextSecondary mt-1">Launch the app! Navigate to the <strong>Lobby</strong>, configure host parameters, spawn simulated bots, and observe real-time logs in the local console tracker.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metadata footer -->
+    <footer class="border-t border-mineStroke bg-mineCard/85 py-12 text-center text-xs text-mineTextSecondary font-mono">
+        <div class="max-w-7xl mx-auto px-6 space-y-4">
+            <div class="flex justify-center space-x-6 text-sm mb-4">
+                <span>📦 Package: <span class="text-mineDiamond">com.aistudio.mcaicompanion.xtvjwr</span></span>
+                <span>📱 Minimum SDK: <span class="text-mineGold">API 24</span></span>
+                <span>🔒 Built Target: <span class="text-mineGreen">Android 16+ API 36</span></span>
+            </div>
+            <p>Mine Server Mode Android companion application builds are autonomously optimized via Google AI Studio.</p>
+            <p class="text-[10px] opacity-60">Minecraft is a registered trademark of Mojang Synergies AB. This setup is built strictly for simulated dashboard educational environments.</p>
+        </div>
+    </footer>
+
+    <!-- Scripting for live interactions simulation -->
+    <script>
+        function log(message, isSuccess = false) {
+            const logsDiv = document.getElementById('terminal-logs');
+            const timeStr = new Date().toLocaleTimeString();
+            const colorClass = isSuccess ? 'text-mineGreen' : 'text-mineTextSecondary';
+            logsDiv.innerHTML += `<p class="${colorClass}">[${timeStr}] ${message}</p>`;
+            logsDiv.scrollTop = logsDiv.scrollHeight;
+        }
+
+        function dismissAd() {
+            const simAd = document.getElementById('sim-ad');
+            simAd.style.display = 'none';
+            log('[Ads Manager] User attempted block. Standard mode ads are locked. Please utilize premium code!');
+            setTimeout(() => {
+                simAd.style.display = 'flex';
+                log('[Ads Manager] Banner refreshed via MineAds network.');
+            }, 5000);
+        }
+
+        function applyPromo() {
+            const promo = document.getElementById('promo-code').value.trim().toUpperCase();
+            const status = document.getElementById('promo-status');
+            const simAd = document.getElementById('sim-ad');
+
+            if (promo === 'CREEPERPASS' || promo === 'SERVERVIP' || promo === 'DEV') {
+                status.innerText = "👑 PREMIUM CODE UNLOCKED! Ads Deactivated.";
+                status.className = "text-[10px] text-mineDiamond block";
+                simAd.style.display = 'none';
+                log(`[Premium System] Code '${promo}' activated successfully. Ads muted globally.`, true);
+            } else {
+                status.innerText = "❌ INVALID PROMO CODE. Try again.";
+                status.className = "text-[10px] text-mineRedstone block";
+                log(`[Premium System] Unsuccessful activation attempt for key: '${promo}'`);
+            }
+        }
+
+        // Live stats ticking simulations
+        setInterval(() => {
+            const cpu = Math.floor(Math.random() * 25) + 10;
+            const ram = Math.floor(Math.random() * 80) + 150;
+            document.getElementById('sim-cpu').innerText = `${cpu}%`;
+            document.getElementById('sim-ram').innerText = `${ram} MB`;
+        }, 3000);
+    </script>
+</body>
+</html>
