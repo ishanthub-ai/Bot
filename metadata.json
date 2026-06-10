@@ -1,0 +1,6 @@
+{
+  "name": "Minecraft Server Mode",
+  "description": "An offline companion dashboard and LAN manager for Minecraft Bedrock Edition, featuring local AI control, on-device vision block scanning, blueprints, and bot status tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
